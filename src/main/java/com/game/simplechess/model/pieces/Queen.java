@@ -6,12 +6,10 @@ import com.game.simplechess.model.Position;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.game.simplechess.board.ChessBoardConstants.BOARD_SIZE;
-
 /**
  * Chess piece of type Pawn.
  * It can move across the board in all 8 directions.
- *
+ * <br>
  * Created by Shashi Mourya on 06/08/2024
  */
 public class Queen extends Piece {

@@ -17,7 +17,7 @@ import static org.mockito.Mockito.when;
 class ChessBoardTest {
 
     private ChessBoard sut;
-    private GridLabelHelper gridLabelHelperMock = Mockito.mock(GridLabelHelper.class);
+    private final GridLabelHelper gridLabelHelperMock = Mockito.mock(GridLabelHelper.class);
 
     @Test
     void testSetPiecePositionOnBoard() {

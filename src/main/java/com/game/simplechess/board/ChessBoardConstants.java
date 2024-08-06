@@ -5,5 +5,7 @@ package com.game.simplechess.board;
  */
 public class ChessBoardConstants {
 
+    private ChessBoardConstants(){}
+
     public static final int BOARD_SIZE = 8;
 }

@@ -8,8 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class SimpleChessApplication implements CommandLineRunner {
@@ -37,8 +37,11 @@ public class SimpleChessApplication implements CommandLineRunner {
 
         chessBoard.setPiecePositionOnBoard(position, pieceType);
         LOG.info("Following are the list of possible moves - ");
-        LOG.info(chessBoard.getAllPossibleMoves(position, pieceType)
-                .stream().collect(Collectors.joining(", ")));
+        List<String> allPossibleMoves = chessBoard.getAllPossibleMoves(position, pieceType);
+        if(!allPossibleMoves.isEmpty())
+            LOG.info(String.join(", ", allPossibleMoves));
+        else
+            LOG.info("No Possible Moves from the given position.");
     }
 
 }

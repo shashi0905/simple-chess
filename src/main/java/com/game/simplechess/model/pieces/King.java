@@ -6,12 +6,10 @@ import com.game.simplechess.model.Position;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.game.simplechess.board.ChessBoardConstants.BOARD_SIZE;
-
 /**
  * Chess piece of type King.
  * It can only move 1 step at a time, in all 8 directions (vertical, horizontal and diagonal)
- *
+ * <br>
  * Created by Shashi Mourya on 06/08/2024
  */
 public class King extends Piece {

@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Chess piece of type Pawn.
  * It can only move 1 step at a time, in the vertical forward direction.
- *
+ * <br>
  * Created by Shashi Mourya on 06/08/2024
  */
 public class Pawn extends Piece {
@@ -23,9 +23,11 @@ public class Pawn extends Piece {
     @Override
     public List<Position> getAllPossibleMoves(Piece piece, Position curPosition) {
         List<Position> allMoves = new ArrayList<>();
-        int newRow = curPosition.getRow() + 1 <= 7 ? curPosition.getRow() + 1 : curPosition.getRow();
-        Position position = new Position(newRow, curPosition.getColumn());
-        allMoves.add(position);
+        int newRow = curPosition.getRow() + 1 <= 7 ? curPosition.getRow() + 1 : -1;
+        if(newRow != -1) {
+            Position position = new Position(newRow, curPosition.getColumn());
+            allMoves.add(position);
+        }
         return allMoves;
     }
 }
