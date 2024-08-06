@@ -1,7 +1,6 @@
 package com.game.simplechess;
 
 import com.game.simplechess.board.ChessBoard;
-import com.game.simplechess.board.GridLabelHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class SimpleChessApplication implements CommandLineRunner {
@@ -33,11 +32,13 @@ public class SimpleChessApplication implements CommandLineRunner {
         LOG.info("Please Enter the Piece Type (e.g., Pawn, King, or Queen)...");
         String pieceType = sc.nextLine();
         LOG.info("Please Enter the Position (e.g., A1, B4, H8 etc.)...");
-        String position = sc.nextLine();
+        String position = sc.nextLine().toUpperCase();
         sc.close();
 
         chessBoard.setPiecePositionOnBoard(position, pieceType);
-        System.out.println(Arrays.toString(chessBoard.getAllPossibleMoves(position, pieceType)));
+        LOG.info("Following are the list of possible moves - ");
+        LOG.info(chessBoard.getAllPossibleMoves(position, pieceType)
+                .stream().collect(Collectors.joining(", ")));
     }
 
 }

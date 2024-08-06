@@ -8,15 +8,15 @@ public enum PieceName {
     KING("King"),
     QUEEN("Queen");
 
-    private final String pieceName;
+    private final String name;
 
     PieceName(String pieceName) {
-        this.pieceName = pieceName;
+        this.name = pieceName;
     }
 
     public static PieceName fromString(String text) {
         for (PieceName b : PieceName.values()) {
-            if (b.pieceName.equalsIgnoreCase(text)) {
+            if (b.name.equalsIgnoreCase(text)) {
                 return b;
             }
         }

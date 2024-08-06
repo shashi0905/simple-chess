@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class GridLabelHelperTest {
+class GridLabelHelperTest {
 
     @Test
-    public void testGetGridPositionA1() {
+    void testGetGridPositionA1() {
         String testPosition = "A1";     // Position -> row - 0, col - 0
         GridLabelHelper sut = new GridLabelHelper();
         Position result = sut.getGridPosition(testPosition);
@@ -17,7 +17,7 @@ public class GridLabelHelperTest {
     }
 
     @Test
-    public void testGetGridPositionH8() {
+    void testGetGridPositionH8() {
         String testPosition = "H8";     // Position -> row - 7, col - 7
         GridLabelHelper sut = new GridLabelHelper();
         Position result = sut.getGridPosition(testPosition);
@@ -26,7 +26,16 @@ public class GridLabelHelperTest {
     }
 
     @Test
-    public void testChessNotation00() {
+    void testGetGridPositionE1() {
+        String testPosition = "E1";     // Position -> row - 0, col - 4
+        GridLabelHelper sut = new GridLabelHelper();
+        Position result = sut.getGridPosition(testPosition);
+        assertEquals(0, result.getRow());
+        assertEquals(4, result.getColumn());
+    }
+
+    @Test
+    void testChessNotation00() {
         Position testPosition = new Position(0, 0);
         GridLabelHelper sut = new GridLabelHelper();
         String chessNotation = sut.getChessNotation(testPosition);
@@ -34,7 +43,7 @@ public class GridLabelHelperTest {
     }
 
     @Test
-    public void testChessNotation77() {
+    void testChessNotation77() {
         Position testPosition = new Position(7, 7);
         GridLabelHelper sut = new GridLabelHelper();
         String chessNotation = sut.getChessNotation(testPosition);
