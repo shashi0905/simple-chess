@@ -20,11 +20,11 @@ Movement of the Chess Pieces -
 2. King - It can only move 1 step at a time, in all 8 directions (vertical, horizontal and diagonal)
 3. Queen - It can move across the board in all 8 directions.
 
-Inputs and Outputs to the application:
+Inputs and Outputs to the application: <br>
 ● Input - The input string to the application will be the Type of chess piece, and it’s position (cell number) on the
-chessboard. E.g. Pawn, G1
+chessboard. E.g. Pawn, G1 <br>
 ● Output - The output is a string of all possible cells in which the chess piece can move from its current position. 
-For the above input, the output would be G2.
+For the above input, the output would be G2. <br>
 
 Setup and Running The Application -
 
