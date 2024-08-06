@@ -62,7 +62,7 @@ class ChessBoardTest {
         when(gridLabelHelperMock.getChessNotation(refEq(expectedPosition))).thenReturn("F8");
         List<String> result = sut.getAllPossibleMoves(position, piece);
         assertNotNull(result);
-        assertEquals("F8", result.get(0));
+        assertEquals(0, result.size());
     }
 
 
@@ -108,5 +108,21 @@ class ChessBoardTest {
         assertTrue(result.contains("D4"));
         assertTrue(result.contains("A8"));
         assertTrue(result.contains("E1"));
+    }
+
+    @Test   //Check Input is handled correctly irrespective of upper or lower case
+    void testCaseInsensitiveInput() {
+        sut = new ChessBoard(gridLabelHelperMock);
+        String position = "h1";
+        String piece = "PaWn";
+
+        Position gridPosition = new Position(0,7);
+        Position expectedPosition = new Position(1, 7);
+        when(gridLabelHelperMock.getGridPosition(position)).thenReturn(gridPosition);
+        when(gridLabelHelperMock.getChessNotation(refEq(expectedPosition))).thenReturn("H2");
+
+        List<String> result = sut.getAllPossibleMoves(position, piece);
+        assertNotNull(result);
+        assertEquals("H2", result.get(0));
     }
 }
