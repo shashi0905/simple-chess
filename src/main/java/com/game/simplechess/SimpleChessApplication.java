@@ -29,19 +29,29 @@ public class SimpleChessApplication implements CommandLineRunner {
     public void run(String... args) {
         LOG.info("WELCOME TO THE SIMPLE CHESS APPLICATION");
         Scanner sc = new Scanner(System.in);
-        LOG.info("Please Enter the Piece Type (e.g., Pawn, King, or Queen)...");
-        String pieceType = sc.nextLine();
-        LOG.info("Please Enter the Position (e.g., A1, B4, H8 etc.)...");
-        String position = sc.nextLine().toUpperCase();
-        sc.close();
 
-        chessBoard.setPiecePositionOnBoard(position, pieceType);
-        LOG.info("Following are the list of possible moves - ");
-        List<String> allPossibleMoves = chessBoard.getAllPossibleMoves(position, pieceType);
-        if(!allPossibleMoves.isEmpty())
-            LOG.info(String.join(", ", allPossibleMoves));
-        else
-            LOG.info("No Possible Moves from the given position.");
+        while(true) {
+            LOG.info("Please Enter the Piece Type (e.g., Pawn, King, or Queen)...");
+            String pieceType = sc.nextLine();
+            LOG.info("Please Enter the Position (e.g., A1, B4, H8 etc.)...");
+            String position = sc.nextLine().toUpperCase();
+
+
+            chessBoard.setPiecePositionOnBoard(position, pieceType);
+            LOG.info("Following are the list of possible moves - ");
+            List<String> allPossibleMoves = chessBoard.getAllPossibleMoves(position, pieceType);
+            if (!allPossibleMoves.isEmpty())
+                LOG.info(String.join(", ", allPossibleMoves));
+            else
+                LOG.info("No Possible Moves from the given position.");
+
+            LOG.info("Do you wish to continue (Y/N) ?");
+            String resume = sc.nextLine();
+            if(!resume.equalsIgnoreCase("Yes") && !resume.equalsIgnoreCase("Y")) {
+                sc.close();
+                break;
+            }
+        }
     }
 
 }
